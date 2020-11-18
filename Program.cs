@@ -7,6 +7,7 @@ namespace SET_CS_cli
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            Account account = new Account("Ricardo Benitez", AccountType.Debit);
         }
     }
 }
