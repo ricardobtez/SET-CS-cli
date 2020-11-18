@@ -9,23 +9,29 @@ public enum AccountType
 public enum TransactionType
 {
     Incoming,
-    Outgoing,
+    Outgoing
 }
 
 public class Account
 {
-    protected string clientName;
+    protected Client client;
     protected AccountType accountType;
     protected decimal balance;
+    protected System.DateTime openDate;
 
-    public Account(string name, AccountType type)
+    public Account(Client client,
+                   System.DateTime openDate,
+                   AccountType type = AccountType.Debit)
     {
-        clientName = name;
-        accountType = type;
+        this.client = client;
+        this.accountType = type;
+        this.openDate = openDate;
     }
+
     public decimal GetBalance() => balance;
     public AccountType GetAccountType() => accountType;
-    public string GetClientName() => clientName;
+    public Client GetClient() => client;
+    public string GetOpenDate() => openDate.ToString();
 
     public void SetTransaction(TransactionType transactionType, decimal amount)
     {

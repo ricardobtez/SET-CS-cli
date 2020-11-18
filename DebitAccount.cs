@@ -2,7 +2,8 @@
 
 public class DebitAccount : Account
 {
-    public DebitAccount(string name) : base(name, AccountType.Debit)
+    public DebitAccount(Client client, System.DateTime openDate) :
+        base(client, openDate, AccountType.Debit)
     {
     }
 }
