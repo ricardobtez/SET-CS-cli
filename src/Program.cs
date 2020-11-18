@@ -1,6 +1,7 @@
 ﻿using System;
+using SET_CS;
 
-namespace SET_CS_cli
+namespace Program
 {
     class Program
     {

@@ -1,4 +1,5 @@
-
+namespace SET_CS
+{
 public class Client
 {
     private string firstName;
@@ -20,4 +21,5 @@ public class Client
     public string GetFirstName() => firstName;
     public string GetLastName() => lastName;
     public System.DateTime GetBirthDate() => birthDate;
+}
 }

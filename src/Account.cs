@@ -12,6 +12,8 @@ public enum TransactionType
     Outgoing
 }
 
+namespace SET_CS
+{
 public class Account
 {
     protected Client client;
@@ -41,4 +43,4 @@ public class Account
             balance -= amount;
     }
 }
-
+}

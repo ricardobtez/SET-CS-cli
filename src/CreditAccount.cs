@@ -1,4 +1,5 @@
-
+namespace SET_CS
+{
 public class CreditAccount : Account
 {
     public CreditAccount(Client client, System.DateTime openDate) :
@@ -6,4 +7,5 @@ public class CreditAccount : Account
     {
     
     }
+}
 }
