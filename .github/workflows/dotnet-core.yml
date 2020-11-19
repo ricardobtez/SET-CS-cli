@@ -20,6 +20,6 @@ jobs:
     - name: Install dependencies
       run: dotnet restore src/
     - name: Build
-      run: dotnet build --configuration Release --no-restore src/
+      run: dotnet build --configuration Release --no-restore Program/
     - name: Test
       run: dotnet test --no-restore --verbosity normal test/

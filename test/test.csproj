@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../src/SET-CS-cli.csproj" />
+    <ProjectReference Include="../Program/SET-CS-cli.csproj" />
   </ItemGroup>
 
 
