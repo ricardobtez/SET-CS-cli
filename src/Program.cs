@@ -8,13 +8,11 @@ namespace Program
         static void Main(string[] args)
         {
             Client currentClient = new Client("Ricardo", "", "Benitez", new System.DateTime(1995, 05, 19));
-            Account account = new DebitAccount(currentClient, System.DateTime.Now);
-            CreditAccount creditAcc = new CreditAccount(currentClient, System.DateTime.Now);
+            Account account = new DebitAccount(System.DateTime.Now);
+            Account creditAcc = new CreditAccount(System.DateTime.Now);
 
-            System.Console.WriteLine(account.GetOpenDate());
-            System.Console.WriteLine(creditAcc.GetOpenDate());
-            
-            System.Console.WriteLine(creditAcc.GetClient().GetBirthDate());
+            currentClient.AddAccount(ref account);
+            currentClient.AddAccount(ref creditAcc);
         }
     }
 }
