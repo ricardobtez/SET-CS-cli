@@ -1,3 +1,4 @@
+
 using System.Collections.Generic;
 
 public enum AccountType
@@ -6,7 +7,6 @@ public enum AccountType
     Credit,
     Investment
 }
-
 
 namespace SET_CS
 {

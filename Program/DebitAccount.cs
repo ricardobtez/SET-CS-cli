@@ -7,6 +7,7 @@ namespace SET_CS
             base(AccountType.Debit)
         {
         }
+
         public DebitAccount(System.DateTime openDate) :
             base(openDate, AccountType.Debit)
         {
