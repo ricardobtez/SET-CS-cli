@@ -1,5 +1,6 @@
 using System;
 using Xunit;
+using System.Collections.Generic;
 using SET_CS;
 
 namespace Program.Test.Accounts
@@ -107,50 +108,73 @@ namespace Program.Test.Accounts
         [Fact]
         public void AccountIncomingTransaction()
         {
-            decimal transaction = 200.5m;
+            decimal amount = 200.5m;
+            Transaction transaction = new Transaction(TransactionType.Incoming, amount);
             Account acc = new Account();
-            acc.SetTransaction(TransactionType.Incoming, transaction);
-            Assert.Equal(transaction, acc.GetBalance());
+            acc.AddTransaction(transaction);
+            Assert.Equal(amount, acc.GetBalance());
         }
         [Fact]
         public void DebitIncomingTransaction()
         {
-            decimal transaction = 350.67m;
+            decimal amount = 350.67m;
+            Transaction transaction = new Transaction(TransactionType.Incoming, amount);
             DebitAccount acc = new DebitAccount();
-            acc.SetTransaction(TransactionType.Incoming, transaction);
-            Assert.Equal(transaction, acc.GetBalance());
+            acc.AddTransaction(transaction);
+            Assert.Equal(amount, acc.GetBalance());
         }
         [Fact]
         public void CreditIncomingTransaction()
         {
-            decimal transaction = 550m;
+            decimal amount = 550m;
+            Transaction transaction = new Transaction(TransactionType.Incoming, amount);
             CreditAccount acc = new CreditAccount();
-            acc.SetTransaction(TransactionType.Incoming, transaction);
-            Assert.Equal(transaction, acc.GetBalance());
+            acc.AddTransaction(transaction);
+            Assert.Equal(amount, acc.GetBalance());
         }
         [Fact]
         public void AccountOutgoingTransaction()
         {
-            decimal transaction = 20m;
+            decimal amount = 20m;
+            Transaction transaction = new Transaction(TransactionType.Outgoing, amount);
             Account acc = new Account();
-            acc.SetTransaction(TransactionType.Outgoing, transaction);
-            Assert.Equal(-transaction, acc.GetBalance());
+            acc.AddTransaction(transaction);
+            Assert.Equal(-amount, acc.GetBalance());
         }
         [Fact]
         public void DebitOutgoingTransaction()
         {
-            decimal transaction = 45.0m;
+            decimal amount = 45.0m;
+            Transaction transaction = new Transaction(TransactionType.Outgoing, amount);
             DebitAccount acc = new DebitAccount();
-            acc.SetTransaction(TransactionType.Outgoing, transaction);
-            Assert.Equal(-transaction, acc.GetBalance());
+            acc.AddTransaction(transaction);
+            Assert.Equal(-amount, acc.GetBalance());
         }
         [Fact]
         public void CreditOutgoingTransaction()
         {
-            decimal transaction = 68.345m;
+            decimal amount = 68.345m;
+            Transaction transaction = new Transaction(TransactionType.Outgoing, amount);
             CreditAccount acc = new CreditAccount();
-            acc.SetTransaction(TransactionType.Outgoing, transaction);
-            Assert.Equal(-transaction, acc.GetBalance());
+            acc.AddTransaction(transaction);
+            Assert.Equal(-amount, acc.GetBalance());
+        }
+        [Fact]
+        public void AccountListOfIncomingTransactions()
+        {
+            decimal[] values = { 200.0m, 200.0m, 200.0m };
+            decimal result = 0.0m;
+            List<Transaction> transactions = new List<Transaction>(3);
+
+            foreach(var amount in values)
+            {
+                transactions.Add(new Transaction(TransactionType.Incoming, amount));
+                result += amount;
+            }
+            
+            Account acc = new Account();
+            acc.AddTransactions(transactions);
+            Assert.Equal(result, acc.GetBalance());
         }
     }
 }
